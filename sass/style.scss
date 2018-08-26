@@ -1,6 +1,75 @@
-h1 {
-    text-align: center;
+$color-1: rgba(195, 79, 79, 1.0);
+$color-2: rgba(195, 79, 79, .5);
+$color-3: rgba(255, 255, 255, 1.0);
+$color-4: rgba(255, 255, 255, .8);
+$bg-color: #303030;
+
+body {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    background-color: $bg-color;
+    font-family: 'PT Sans Narrow', sans-serif;
+    max-width: 1200px;
 }
-.change-font-color {
-    color: red;
+
+// Menu
+.nav {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 10px;
+    .nav-elem {
+        flex-grow: 1;
+        list-style-type: none;
+        background-color: $color-1;
+        border-bottom: 2px solid $color-1;
+        transition: .5s;
+        .nav-link {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            font-size: 20px;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $color-4;
+        }
+        &:hover {
+            background-color: $color-2;
+            border-bottom: 2px solid $color-3;
+        }
+        &:hover .nav-link {
+            color: $color-3;
+        }
+    }
+    .nav-elem-active {
+        background-color: $color-2;
+        border-bottom: 2px solid $color-3;
+        .nav-link {
+            color: $color-3;
+        }
+    }
+}
+
+// RWD
+@media (max-width: 992px) {
+    .nav {
+        flex-wrap: wrap;
+        .nav-elem {
+            border-bottom: none;
+            width: 25%;
+            &:hover {
+                border-bottom: none;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .nav .nav-elem {
+        width: 50%;
+    }
 }
